@@ -2,7 +2,7 @@ import csv
 import numpy as np
 
 
-source_file = 'source/daily_tag_5625.csv'
+source_file = 'source/daily_tag_5131.csv'
 threshold = 0.95
 
 def loadUpCSV(source_csv_path):
@@ -48,7 +48,7 @@ def getReductions(normalized):
         for rowIndex in range(len(normalized[:,0])-1,-1,-1):
             if not foundReduction:
                 if normalized[rowIndex,colIndex] > threshold:
-                    reductions.append(1-normalized[rowIndex,0])
+                    reductions.append(threshold-normalized[rowIndex,0])
                     # print(f'row,col: {rowIndex}, {colIndex}')
                     foundReduction = True
 
